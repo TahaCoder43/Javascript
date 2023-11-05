@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Hooking</title>
+    </head>
+    <body>
+        <div id="root1">This is just a simple div element⭐⭐✨✨</div>
+        
+        <script type="text/babel">
+            const DOM1 = () => {
+                const [myColor, setColor] = React.useState(["red"]);
+
+                function changeColor(color) {
+                    setColor(color)
+                    console.log(myColor)
+                }
+
+                const myStyle = {
+                    backgroundColor: myColor
+                };
+
+                return <>
+                    <button onClick={() => {changeColor("#0000ff")}}>Change color to blue</button>
+                    <button onClick={() => {changeColor("#ff0000")}}>Change color to red</button>
+                    <button onClick={() => {changeColor("#00ff00")}}>Change color to green</button>
+                    <button onClick={() => {changeColor("#ffff00")}}>Change color to yellow</button>
+                    <p style={myStyle}>_________________<br/><br/><br/>___________________</p>
+                </>
+            }
+
+            ReactDOM.render(<DOM1/>, document.getElementById("root1"))
+
+        </script>
+
+    </body>
+</html>

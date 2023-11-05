@@ -1,0 +1,10 @@
+body {
+    background-color: #333333;
+    color: orange;
+}
+
+#userInfo input {
+    outline: none;
+    background-color: antiquewhite;
+    border: none;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Conditions test</title>
+    </head>
+    <div id="Root1"></div>
+    <div id="Root2"></div>
+
+    
+    <script type="text/babel">
+
+        function Car(props) {
+            return <>
+                {props.running &&
+                    <h1>This is a running car9</h1>
+                }
+            </>
+        }
+
+        function DOM1(props) {
+            return <>
+                <p>Below there is a car element</p>
+                <Car running={true}/>
+            </> 
+        }
+
+        ReactDOM.render(<DOM1/>, document.getElementById("Root1"))
+
+    </script>
+
+
+</html>

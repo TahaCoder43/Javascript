@@ -1,0 +1,3 @@
+C:\Users\TahaM\EliteData\Code\JavaScript\Firebase\learning\obj\Debug\Firebase.njsproj.AssemblyReference.cache
+C:\Users\TahaM\EliteData\Code\JavaScript\Firebase\learning\obj\Debug\Firebase.njsproj.CoreCompileInputs.cache
+C:\Users\TahaM\EliteData\Code\JavaScript\Firebase\learning\bin\Microsoft.NodejsTools.WebRole.dll

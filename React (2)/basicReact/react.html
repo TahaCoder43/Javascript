@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rendering</title>
+    </head>
+    <body>
+        <dir id="root1">This is the Root Directory</dir>
+        <dir id="root2">This is the second root directory</dir>
+
+<!--You have to use className instead of class because class is a reserved word in javascript -->
+
+        <script type="text/babel">
+                function DOM() {
+                    let num1 = 12;
+                    let num2 = 15;
+                    return <h2>Just an Element, Sum is {num1 + num2}</h2>
+                }
+                let DOM2 = () => {
+                    return <>
+                        <p>This is just a paragraph</p>
+                        <p>This is just another paragraph</p>
+                    </>
+                }
+            ReactDOM.render(<DOM/>, document.getElementById('root1'))
+            ReactDOM.render(<DOM2/>, document.getElementById('root2'))
+            console.log("Heyyy, This was build using react 😲😲")
+        </script>
+
+
+
+    </body>
+</html>

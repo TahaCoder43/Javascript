@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>useRefState</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Child1() {
+            return <div>
+                something
+            </div>
+        }
+
+        function Child2() {
+            return <div>
+                anotherthing
+            </div>
+        }
+
+        function Parent() {
+            const [boolState, setBoolState] = React.useState(true)
+            return <div>
+                {boolState ? <Child1 /> : <Child2 />}
+                <button onClick={() => { setBoolState(boolState ? false : true) }}>click me</button>
+            </div>
+        }
+
+        ReactDOM.render(<Parent />, document.getElementById("root"))
+
+    </script>
+
+</body>
+
+</html>

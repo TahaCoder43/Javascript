@@ -1,0 +1,16 @@
+html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow: hidden;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+/* .scene { */
+/*     width: 100vw; */
+/*     height: 100vh; */
+/* } */

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <link rel="stylesheet" href="/src/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Firebase</title>
+    </head>
+    <body>
+        <div id="app">
+            <form id="signUp">
+                <div>Sign up</div>
+                <input name="email" type="text" />
+                <input name="password" type="text" />
+                <input type="submit" value="Sign Up" />
+            </form>
+            <form id="signIn">
+                <div>Sign in</div>
+                <input name="email" type="text" />
+                <input name="password" type="text" />
+                <input type="submit" value="Sign In" />
+                <button id="googleSignIn">Sign in with google</button>
+            </form>
+            <div id="verification" hidden>Verify your email✉️</div>
+            <div id="signedIn" hidden>
+                <p>Your signed in🙌🏽</p>
+                <div id="userInfo">
+                    <input name="email" />
+                    <input name="name" />
+                </div>
+                <form id="addTask">
+                    <div>Add task</div>
+                    <input name="title" />
+                    <input name="description" />
+                    <input type="submit" value="Add Task" />
+                </form>
+                <button id="signOut">Sign Out</button>
+            </div>
+        </div>
+        <script type="module" src="/src/main.ts"></script>
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<style>
+		.blue {background-color : "blue"};
+		.green {background-color : "#00ff00"};
+	</style>
+	<title>Html testing with jquery</title>
+</head>
+<body>
+	<div id="test1">Just a block element <p>With a paragraph element inside it</p>🎉🎉</div>
+	<button onclick="getData()">Get info!</button>
+	<button onclick="reset()">Reset the data inside the elements!</button>
+	<input id="test2" type="text">
+	<p id="testPara">This is a test paragraph it has a ...</p>
+	<button onclick="addText()">Add Text</button>
+	<button onclick="addAnotherText()">Add Another Text</button>
+	<button onclick="addNewElements()">Add new elements</button>
+	<button onclick="addPositionedElements()" id="clicker1">This will add an element between the button and the text</button>
+	<p>This is a text</p>
+	<button onclick="removeElements()">Remove the below elements</button>
+	<div id=area1 class=green>This is just some text</div>
+	<div id=area2><p>This is an element inside</p></div>
+	<p id=styled>This element is about to get its color changed</p>
+	<button onclick="addClassToElement()">Get modern</button>
+	<p id=toBeExpanded style="border: 2px solid #aa00ff";>this element is about to be expanded</p>
+	<button onclick="expandElement()">Expand It</button>
+	<script>
+		function getData() {
+			let myElement = $("#test1");
+			console.log(myElement.text());
+			console.log(myElement.html());
+			console.log(myElement.attr("id"));
+			console.log($("#test2").val());
+		};
+		function reset() {
+			let myElement = $("#test1");
+			myElement.text("");
+			myElement.html("");
+			$("#test2").val("");
+		};
+		function addText() {
+			$("#testPara").append("this is some <b>bold</b> text");
+		};
+		function addAnotherText() {
+			$("#testPara").prepend("(inside of the <b>body</b>) ");
+		};
+		function addNewElements() {
+			let html1 = $("<p></p>").text("This is a text element created with Jquery🖥🖥");
+			let html2 = $("<p></p>").text("This is another text element created with jquery⚙⚙");
+			$("body").append(html1, html2);
+		};
+		function addPositionedElements() {
+			// You can also use before if you wanna insert it before the element``
+			$("#clicker1").after("<p>This is just some text</p>");
+		};
+		function removeElements() {
+			// You can also pass name of class with '.' that will remove all the elements with that class
+			// you can also add multiple classes
+			$("#area1").remove();
+			$("#area2").empty();
+		}
+		function addClassToElement() {
+			// You can also removeClass and toggleClass
+			// You can also use css to specify the css and also return values by just giving the parameter
+			// You can pass an object to change multiple values
+			$("#styled").addClass("blue");
+			console.log("It does run")
+		}
+		function expandElement() {
+			// you can use width and height to expand an element over all
+			let justSomeElement = $("#toBeExpanded");
+			console.log("The previos dimensions are")
+			console.log(justSomeElement.innerWidth())
+			console.log(justSomeElement.innerHeight())
+			console.log(justSomeElement.outerWidth())
+			console.log(justSomeElement.outerHeight())
+			console.log(justSomeElement.outerWidth(true))
+			console.log(justSomeElement.outerHeight(true))
+			justSomeElement.innerWidth(250)
+			justSomeElement.innerHeight(250)
+			justSomeElement.outerWidth(250)
+			justSomeElement.outerHeight(250)
+		}
+	</script>
+</body>
+</html>

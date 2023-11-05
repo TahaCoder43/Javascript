@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Effects✨✨</title>
+</head>
+<body>
+	<p id="subject1" style="display: none;">I am just a subject🥺🥺🥺</p>
+	<button onclick="fader1()">Bring back the subject😇😇</button>
+	<button onclick="fader2()">Fade the subject😈😈</button>
+	<button onclick="fader3()">Do the oppsite😐😐</button>
+	<form onsubmit="submit()">
+		<label>Select your opacity you want to fade it too</label>
+		<input type="text" id="selector">
+		<input type="submit">
+	</form>
+
+	<p id="subject2" style='margin-top: 100px;'>This is an other subject😥😥😥</p>
+	<button onclick="slide1()">SlideUp</button>
+	<button onclick="slide2()">SlideDown</button>
+	<button onclick="slide3()">SlideToggle</button>
+
+	<div id="block" style="background-color: #00ff00; width: 100px; height: 100px; position:relative;"></div>
+	<button id="mover1">MoVE iT</button>
+	<button id="mover2"> Move it back</button>
+	<button id="mover3"> Stop it 😱</button>
+	<div id=block2 style="background-color: #aaaaaa; width:100px; height:100px; position:relative;"></div>
+	<button id="animater1"> Animate it all</button>
+	<script>
+		function messager() {
+			alert("Something got faded")
+		}
+		function fader1() {
+			$('#subject1').fadeIn(1000, messager)
+		}
+		function fader2() {
+			$("#subject1").fadeOut(1000, messager)
+		}
+		function fader3() {
+			$("#subject1").toggle(1000, messager)
+		};
+		function submit() {
+			// for some reason this is not working but the fade to method works
+			console.log("This is running");
+			let opacity = Number($(selector).value);
+			$("#subject1").fadeTo(1000, opacity, messager);
+		};
+
+		function slide1() {
+			$("#subject2").slideUp();
+		}
+		function slide2() {
+			$("#subject2").slideDown();
+		}
+		function slide3() {
+			$("#subject2").slideToggle();
+		}
+		let object1 = $("#block");
+		$(document).ready(
+			$("#mover2").click(function() {
+				object1.animate({right: "+=200px", opacity: "1", width:'100x', height: '100px'}, "slow");
+			}),
+			$("#mover1").click(function() {
+				object1.animate({left: "+=200px", opacity: "0.5", width:'150px', height: '150px'}, "slow");
+			}),
+			$("#mover3").click(function() {
+				object1.stop()
+			}),
+			$("#animater1").click(function() {
+				let object2 = $("#block2");
+				object2.animate({left: "+=200px"}).animate({bottom:"+=200px"}).animate({right:"+=140px"}).animate({top: "+=60px"})
+				console.log("does run")
+				console.log("runs on", object2)
+			})
+		);
+
+	</script>
+</body>
+</html>

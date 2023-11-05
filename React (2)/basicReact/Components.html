@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My React Component test</title>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="previousValues"><p id="pre1"></p><p id="pre2"></p></div>
+        <div id="root1"></div>
+        <div id="root2"></div>
+
+
+        <script type="text/babel">
+            class DOM extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {color: "red"};
+                };
+
+                static getDerivedStateFromProps(props, state) {
+                    return {favoriteColor: props.color}
+                }
+                
+                color = () => {
+                    this.setState({"color": "blue"});
+                }
+                
+                favoriteColor = () => {
+                    this.setState({"favoriteColor": "green"})
+                }
+
+                updating = () => {
+                    this.shouldComponentUpdate = () => {return false;};
+                }
+
+                getSnapshotBeforeUpdate(prevProps, prevState) {
+                    document.getElementById("pre1").innerHTML = prevProps, prevState 
+                }
+
+                componentDidUpdate() {
+                    document.getElementById("pre2").innerHTML = "This HTML has been updated"
+                }
+
+                render() {
+                    return <>
+                        <p>This is a text, it has a state color of {this.state.color}, favoriteColor {this.state.favoriteColor}</p>
+                        <button type="button" onClick={this.color}>Change color</button>
+                        <button type="button" onClick={this.favoriteColor}>Try changing favorite color</button>
+                        <button type="button" onClick={this.updating}>Change the updating state to false</button>
+                    </>
+                };
+
+                componentDidMount() {
+                    console.log("This ran after render")
+                }
+            }
+
+            function DOM2(props) {
+                return <p>This is a text with properties, it says "{props.message}"</p>
+            }
+            ReactDOM.render(<DOM color="grey"/>, document.getElementById("root1"))
+            ReactDOM.render(<DOM2 message="Hey"/>, document.getElementById("root2"))
+        </script>
+
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initail-scale=1">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Routing</title>
+    </head>
+    <body>
+        <!-- This does not work because you will have to create a react project to do so -->
+        <div id="root1"=></div>
+
+        <script type="text/babel">
+            import SubDOM from './Imported.js'
+
+            function DOM1() {
+                return <>
+                    <p>This file is connected to other files</p>
+                </>
+            }
+
+            ReactDOM.render(<DOM1/>, document.getElementById("root1"))
+        </script>
+    </body>
+</html>

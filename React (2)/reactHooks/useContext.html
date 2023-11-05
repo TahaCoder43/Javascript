@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Use State</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const context = React.createContext()
+
+
+        function Component1() {
+            const [value, setValue] = React.useState("something")
+            return <context.Provider value={value}> <div>
+                <Component2/>
+            </div></context.Provider>
+        }
+
+        function Component2() {
+            return <div>
+                <Component3/>
+            </div>
+        }
+
+        function Component3() {
+            const value = React.useContext(context)
+            return <div>{value}</div>
+        }
+        ReactDOM.render(<Component1/>, document.getElementById('root'))
+
+
+    </script>
+</body>
+</html>

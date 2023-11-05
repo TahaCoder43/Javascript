@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script src="../Scripts/Basic Programming/Async.js"></script>
+        <title>Async Test</title>
+    </head>
+    <body>
+        <p>Input Number1:</p>
+        <input id=num1 type="number">
+        <p>Input Number2:</p>
+        <input id=num2 type="number">
+        <button onclick="window.Calculate(parseFloat(document.getElementById('num1').value), parseFloat(document.getElementById('num2').value), Output)">
+            Get Answer!
+        </button>
+        <p id="ans" style="margin: bottom 100px;"></p>
+        <p id="messageAsk"></p>
+        <p id="showTime"></p>
+    </body>
+</html>
+

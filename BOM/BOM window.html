@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="../Scripts/BOM/Bom window.js"></script>
+        <title>Bom Window</title>
+    </head>
+    <body>
+        <button onclick="window.close()">Close</button>
+        <button onclick="window.open()">Open a new tab</button>
+        <button onclick="window.resizeTo(700, 450)">Resize</button>
+        <button onclick="window.moveTo(700, 100)">Move</button>
+        <button onclick="location.assign('https://www.wikipedia.com')">Open Wikipedia</button>
+        <button onclick="history.back()">Move to previous page</button>
+        <button onclick="history.forward()">Move to the next page</button>
+        <br><br><br>
+        <button onclick="alert('heyyyy\nHave a great day')">Alert Yourself</button>
+        <button onclick="console.log(confirm('do you like popup boxes'))">Confirm</button>
+        <button onclick="console.log(prompt('to a scale to one to ten how much do you like potatoes:', '0'))">Like Potatoes?</button>
+    </body>
+</html>

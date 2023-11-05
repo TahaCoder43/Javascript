@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+	<title>This is traversing test for jquery</title>
+	<style>
+		.identity {
+
+		}
+	</style>
+</head>
+<body>
+	<header id="greatGrandParent" style="width: 250px; height: 250px;">
+		<div id="grandParent" style="width: 200px; height: 200px;">
+			<div id="parent" style="width: 150px; height: 150px;">
+				<p id=child style="width: 100px; height: 100px; margin-top: 0px; margin-bottom: 0px;">This is just a text element</p>
+			</div>
+		</div>
+		<div id="anotherone" class=identity></div>
+		<div id="ll" class=identity></div>
+		<div id="something"></div>
+	</header>
+	<button onclick="showParents()">Parents</button>
+	<button onclick="showChildren()">Children</button>
+	<button onclick="showSiblings()">Siblings</button>
+	<button onclick="filtering()">Filter It</button>
+	<script>
+		function showParents() {
+			console.log("_________________Parents_________________")
+			console.log($("#parent").parent())
+			console.log($("#parent").parents())
+			$("#child").css("border", "2px solid #cc6600").parentsUntil("header").css("border", "2px solid #ff9900")
+			console.log("__________________________________")
+		};
+		function showChildren() {
+			console.log("_________________Children_________________");
+			// You can use "*" on find to return all children
+			console.log($("#greatGrandParent").children());
+			console.log($("#greatGrandParent").children("div.identity"));
+			console.log($("#greatGrandParent").find("#parent"));
+			console.log("__________________________________");
+		}
+		function showSiblings() {
+			console.log("_________________Siblings_________________");
+			// There are also prev methods you can use like the next methods
+			console.log($("#grandParent").siblings())
+			console.log($("#grandParent").siblings("#ll"))
+			console.log($("#grandParent")).next()
+			console.log($("#anotherone")).nextAll()
+			console.log($("#grandParent")).nextUntil("#ll")
+			console.log("__________________________________")
+
+		}
+		function filtering() {
+			console.log("_________________Filtering_________________")
+			console.log($("div").first())
+			console.log($("div").last())
+			console.log($("div").eq(2))
+			console.log($("div").filter(".identity"))
+			console.log($("div").not(".identity"))
+		}
+	</script>
+
+</body>
+</html>

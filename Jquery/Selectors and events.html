@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$(demo2).innerHTML = "This is changed🌟🌟"
+			$(demo2).hide()
+			$(demo3).mouseenter(() => {
+				console.log("Mouse is over the button😊😊😊")
+			})
+			$(demo3).mouseleave(() => {
+				console.log("Mouse left the button😭😭")
+			})
+			$(demo3).dblclick(function() {
+				console.log("This was double clicked 🚀🚀🚀")
+			})
+			// You can also use hover if your gonna use both mouseleave and mouse enter because it basically does both of them
+			$("#demo4").focus(function() {
+				$(this).css("background-color", "#cccccc")
+			})
+			// There is also a blur method that detects if the focus moves
+			$("#demo5").on({
+				mouseenter: function(){
+					$(this).css("background-color", "#ff0000")
+				},
+				mouseleave: function(){
+					$(this).css("background-color", "#00ff00")
+				},
+				click: function(){
+					$(this).css("background-color", "#0000ff")
+				},
+				dblclick: function(){
+					$(this).css("background-color", "#ffff00")
+				}
+			})
+		})
+	</script>
+	<script>
+		function submited(value) {
+			console.log($("#demo4").value)
+			console.log('The function is running')
+		}
+		function toggled() {
+			alert("The state of the element is changed")
+		}
+	</script>
+	<title>Baisc Jquery</title>
+</head>
+<body>
+	<p id="demo1">This is just an element</p>
+	<button onclick="$('#demo1').hide()">hide</button>
+	<button onclick="$('#demo1').show()">show</button>
+	<button id=demo3>This doesnt needs to be clicked</button>
+	<p id="demo2">This is an element that will be modified by a head script when the document gets ready✨✨✨</p>
+	<form onsubmit=submited()>
+		<label>This is a Form</label>
+		<input type="text" value="Enter anything" id="demo4">
+		<input type="submit">
+	</form>
+	<p id="demo5">This elements changes color</p>
+	<p id="demo6">This element can toggle</p>
+	<button onclick="$('#demo6').toggle(1000, toggled)">This is the button to toggle it</button>
+	<script>
+		console.log("this has jquery loaded")
+	</script>
+</body>
+</html>

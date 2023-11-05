@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Advanced Componenets test for react</title>
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root1">This is just a DIV with a textnode inside it</div>
+        <div id="root2">This is just another DIV withanother textnode inside it</div>
+        <div id="root3">This is the third DIV</div>
+        <div id="root4">This is the fourth root</div>
+
+
+        <script type="text/babel">
+            const persons = ["Taha", "Aliya", "Shan"];
+
+            function Item(props) {
+                return <li>{props.name}</li>
+            }
+
+            function DOM(props) {
+                return <>
+                    <ul>
+                        {persons.map((person, id) => <Item name={person} key={id}/>)}
+                    </ul>
+                </>
+            }
+
+            function DOM2(props) {
+                const [name, setName] = React.useState("")
+
+                function handleSubmit(event) {
+                    // prevent states from refressing on form submit
+                    event.preventDefault();
+                    alert("The name you entered is " + name);
+                }
+
+                return <>
+                    <form onSubmit={handleSubmit}>
+                        <label>
+                            Enter in your name:
+                            <input
+                                type="text"
+                                value={name}
+                                onChange={(thisEvent) => {setName(thisEvent.target.value)}}
+                            />
+                        </label>
+                        <input type="submit" />
+                    </form>
+                </>
+            }
+
+            function MyForm(props) {
+                const [inputs, setInputs] = React.useState({});
+
+                const handleChange = (event) => {
+                    const name = event.target.name;
+                    const value = event.target.value;
+                    setInputs({...inputs, [name]: value})
+                }
+
+                const handleSubmit = (event) => {
+                    event.preventDefault();
+                    console.log(inputs)
+                }
+
+                return (
+                    <form onSubmit={handleSubmit}>
+                    <label>Enter your name:
+                    <input 
+                        type="text" 
+                        name="username" 
+                        value={inputs.username || ""} 
+                        onChange={handleChange}
+                    />
+                    </label>
+                    <label>Enter your age:
+                        <input 
+                        type="number" 
+                        name="age" 
+                        value={inputs.age || ""} 
+                        onChange={handleChange}
+                        />
+                        </label>
+                        <input type="submit" />
+                    </form>
+                )
+            }
+            
+            function MyForm2(props) {
+                const [myTextarea, setTextarea] = React.useState("The value of text area goes in the value property")
+
+                function handleChange(event) {
+                    setTextarea(event.target.value)
+                }
+
+                return <form>
+                    <textarea value={myTextarea} onChange={handleChange}/>
+                </form>
+            }
+
+            ReactDOM.render(<DOM/>, document.getElementById("root1"))
+            ReactDOM.render(<DOM2/>, document.getElementById("root2"))
+            ReactDOM.render(<MyForm/>, document.getElementById("root3"))
+            ReactDOM.render(<MyForm2/>, document.getElementById("root4"))
+        </script>
+
+
+    </body>
+</html>

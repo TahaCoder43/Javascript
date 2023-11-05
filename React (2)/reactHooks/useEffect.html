@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Just a test</title>
+    </head>
+    <body>
+        <div id="root1">This is just a test subject🚀🚀🚀</div>
+        
+        <script type="text/babel">
+            
+            // it runs again and again because everytime the count updates the page has to re-render to 
+            // update the count which in return starts useEffect again
+            // function DOM1() {
+            //     const [count, setCount] = React.useState(0);
+            //     React.useEffect(() => {
+            //         setTimeout(() => {
+            //             setCount((count) => count + 1);
+            //         }, 1000)
+            //     });
+            //     return <>
+            //         <p>I have ran {count} times</p>
+            //     </>
+            // }
+            // stop useEffect from repeating
+            function DOM2() {
+                const [count, setCount] = React.useState(0)
+
+                React.useEffect(() => {
+                    setTimeout(() => {
+                        setCount(count+1)
+                    }, 1000)
+                }, [])
+                return <div>non-repeating count {count}</div>
+            }
+            // run on a certain value changing
+            function DOM3() {
+                const [text, setText] = React.useState("Click the button to change the text and see what happens")
+
+                React.useEffect(() => {
+                    console.log("You changed the text")
+                }, [text])
+
+                return <div>
+                    <div>{text}</div>
+                    <button onClick={function () {setText("changed")}}></button>
+                </div>
+            }
+            // This would cause an error because react does not allow infinite renders and detects them
+            // for safety purposes
+            // ReactDOM.render(<DOM1/>, document.getElementById("root1"))
+            ReactDOM.render(<DOM2/>, document.getElementById("root1"))
+            // ReactDOM.render(<DOM3/>, document.getElementById("root1"))
+
+        </script>
+
+    </body>
+</html>

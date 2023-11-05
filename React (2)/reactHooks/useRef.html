@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Use ref hook</title>
+</head>
+<body>
+    <dir id="root"></dir>
+    <script type="text/babel">
+        
+        function Main() {
+            const inputElement = React.useRef();
+            
+            function typeIn() {
+                // this doens't work for some reason and I don't wanna find out right now why doesn't it work
+                // inputElement.value = "You listened to a computer, since the programmer told the computer to do this you listened to Taha"
+                inputElement.current.focus()
+            }
+            return <div>
+                <input type="text" ref={inputElement} value="something"/>
+                <button onClick={typeIn}>Click this</button>
+            </div>
+        }
+
+        ReactDOM.render(<Main/>, document.getElementById("root"));
+    </script>
+</body>
+</html>
